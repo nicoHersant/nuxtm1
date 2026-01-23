@@ -18,11 +18,10 @@ function handleClick() {
 
 <template>
   <div
-    class="user-card-wrapper"
-    :class="{ selected }"
+    class="click-area"
     @click="handleClick"
   >
-    <BaseCard>
+    <BaseCard :class="{ selected }">
       <template #header>
         <img
           :src="user.avatar"
@@ -43,15 +42,10 @@ function handleClick() {
 </template>
 
 <style scoped>
-.user-card-wrapper {
-  border: 2px solid transparent;
-  border-radius: 16px;
-  transition: border-color 0.2s ease;
+.click-area {
+  display: flex;
+  justify-content: center;
   cursor: pointer;
-}
-
-.user-card-wrapper.selected {
-  border-color: #86efac; /* vert pâle */
 }
 
 .avatar {

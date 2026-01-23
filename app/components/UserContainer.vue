@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import UserCard from '@/components/UserCard.vue'
 import type { User } from '@/types/user'
+import { useActiveUser } from '@/composables/useActiveUser'
+
+const activeUser = useActiveUser()
 
 const props = defineProps<{
   modelValue: User | null
@@ -37,9 +40,9 @@ const users: User[] = [
   }
 ]
 
-function selectUser(selectedUser: User) {
-  emit('update:modelValue', selectedUser)
-  console.log('Utilisateur sélectionné :', selectedUser)
+function selectUser(user: User) {
+  activeUser.value = user
+  console.log('Utilisateur sélectionné :', user)
 }
 </script>
 
@@ -49,7 +52,7 @@ function selectUser(selectedUser: User) {
       v-for="user in users"
       :key="user.id"
       :user="user"
-      :selected="modelValue?.id === user.id"
+      :selected="activeUser?.id === user.id"
       @select="selectUser"
     />
   </div>

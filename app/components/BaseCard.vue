@@ -1,4 +1,5 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>
 
 <template>
   <div class="base-card">
@@ -14,6 +15,7 @@
 
 <style scoped>
 .base-card {
+  box-sizing: border-box;
   background-color: #111827;
   border-radius: 14px;
   padding: 1.5rem;
@@ -21,6 +23,13 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   color: #e5e7eb;
   font-family: system-ui, sans-serif;
+}
+
+/* Sélection : anneau parfaitement aligné sur la card (inclut padding) */
+.base-card.selected {
+  box-shadow:
+    0 0 0 2px #86efac,
+    0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 .base-card__header {
