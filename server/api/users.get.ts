@@ -2,29 +2,48 @@ import type { User } from '@/types/user'
 
 export default defineEventHandler((): User[] => {
   return [
-    {
-      id: 1,
-      pseudo: 'nico_dev',
-      avatar: 'https://i.pravatar.cc/150?img=12',
-      isActive: true
-    },
-    {
-      id: 2,
-      pseudo: 'alice_ui',
-      avatar: 'https://i.pravatar.cc/150?img=32',
-      isActive: false
-    },
-    {
-      id: 3,
-      pseudo: 'bob_ts',
-      avatar: 'https://i.pravatar.cc/150?img=56',
-      isActive: true
-    },
-    {
-      id: 4,
-      pseudo: 'clara_nuxt',
-      avatar: 'https://i.pravatar.cc/150?img=68',
-      isActive: false
-    }
-  ]
+  { id: 1, pseudo: 'nico_dev', avatar: 'https://i.pravatar.cc/150?img=12', isActive: true },
+  { id: 2, pseudo: 'alice_ui', avatar: 'https://i.pravatar.cc/150?img=32', isActive: false },
+  { id: 3, pseudo: 'bob_ts', avatar: 'https://i.pravatar.cc/150?img=56', isActive: true },
+  { id: 4, pseudo: 'clara_nuxt', avatar: 'https://i.pravatar.cc/150?img=68', isActive: false },
+  { id: 5, pseudo: 'julien_js', avatar: 'https://i.pravatar.cc/150?img=5', isActive: true },
+  { id: 6, pseudo: 'emma_css', avatar: 'https://i.pravatar.cc/150?img=6', isActive: true },
+  { id: 7, pseudo: 'thomas_node', avatar: 'https://i.pravatar.cc/150?img=7', isActive: false },
+  { id: 8, pseudo: 'lea_vue', avatar: 'https://i.pravatar.cc/150?img=8', isActive: true },
+  { id: 9, pseudo: 'max_react', avatar: 'https://i.pravatar.cc/150?img=9', isActive: true },
+  { id: 10, pseudo: 'sarah_api', avatar: 'https://i.pravatar.cc/150?img=10', isActive: false },
+  { id: 11, pseudo: 'kevin_sql', avatar: 'https://i.pravatar.cc/150?img=11', isActive: true },
+  { id: 12, pseudo: 'lucas_php', avatar: 'https://i.pravatar.cc/150?img=13', isActive: false },
+  { id: 13, pseudo: 'manon_git', avatar: 'https://i.pravatar.cc/150?img=14', isActive: true },
+  { id: 14, pseudo: 'paul_docker', avatar: 'https://i.pravatar.cc/150?img=15', isActive: true },
+  { id: 15, pseudo: 'ines_test', avatar: 'https://i.pravatar.cc/150?img=16', isActive: false },
+  { id: 16, pseudo: 'hugo_ci', avatar: 'https://i.pravatar.cc/150?img=17', isActive: true },
+  { id: 17, pseudo: 'camille_ux', avatar: 'https://i.pravatar.cc/150?img=18', isActive: false },
+  { id: 18, pseudo: 'antoine_algo', avatar: 'https://i.pravatar.cc/150?img=19', isActive: true },
+  { id: 19, pseudo: 'jade_mobile', avatar: 'https://i.pravatar.cc/150?img=20', isActive: true },
+  { id: 20, pseudo: 'romain_flutter', avatar: 'https://i.pravatar.cc/150?img=21', isActive: false },
+  { id: 21, pseudo: 'lina_kotlin', avatar: 'https://i.pravatar.cc/150?img=22', isActive: true },
+  { id: 22, pseudo: 'yann_swift', avatar: 'https://i.pravatar.cc/150?img=23', isActive: false },
+  { id: 23, pseudo: 'nora_graphql', avatar: 'https://i.pravatar.cc/150?img=24', isActive: true },
+  { id: 24, pseudo: 'quentin_rest', avatar: 'https://i.pravatar.cc/150?img=25', isActive: true },
+  { id: 25, pseudo: 'zoe_auth', avatar: 'https://i.pravatar.cc/150?img=26', isActive: false },
+  { id: 26, pseudo: 'axel_oauth', avatar: 'https://i.pravatar.cc/150?img=27', isActive: true },
+  { id: 27, pseudo: 'marine_cache', avatar: 'https://i.pravatar.cc/150?img=28', isActive: false },
+  { id: 28, pseudo: 'benjamin_perf', avatar: 'https://i.pravatar.cc/150?img=29', isActive: true },
+  { id: 29, pseudo: 'eva_cloud', avatar: 'https://i.pravatar.cc/150?img=30', isActive: true },
+  { id: 30, pseudo: 'leo_aws', avatar: 'https://i.pravatar.cc/150?img=31', isActive: false },
+  { id: 31, pseudo: 'anais_azure', avatar: 'https://i.pravatar.cc/150?img=33', isActive: true },
+  { id: 32, pseudo: 'sam_gcp', avatar: 'https://i.pravatar.cc/150?img=34', isActive: true },
+  { id: 33, pseudo: 'elise_logs', avatar: 'https://i.pravatar.cc/150?img=35', isActive: false },
+  { id: 34, pseudo: 'victor_sec', avatar: 'https://i.pravatar.cc/150?img=36', isActive: true },
+  { id: 35, pseudo: 'pauline_rgpd', avatar: 'https://i.pravatar.cc/150?img=37', isActive: false },
+  { id: 36, pseudo: 'noah_encrypt', avatar: 'https://i.pravatar.cc/150?img=38', isActive: true },
+  { id: 37, pseudo: 'cloe_backup', avatar: 'https://i.pravatar.cc/150?img=39', isActive: true },
+  { id: 38, pseudo: 'mathis_k8s', avatar: 'https://i.pravatar.cc/150?img=40', isActive: false },
+  { id: 39, pseudo: 'iris_monitor', avatar: 'https://i.pravatar.cc/150?img=41', isActive: true },
+  { id: 40, pseudo: 'adam_event', avatar: 'https://i.pravatar.cc/150?img=42', isActive: false },
+  { id: 41, pseudo: 'sofia_queue', avatar: 'https://i.pravatar.cc/150?img=43', isActive: true },
+  { id: 42, pseudo: 'nathan_realtime', avatar: 'https://i.pravatar.cc/150?img=44', isActive: true }
+]
+
 })

@@ -13,32 +13,7 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: User | null): void
 }>()
 
-const users: User[] = [
-  {
-    id: 1,
-    pseudo: 'nico_dev',
-    avatar: 'https://i.pravatar.cc/150?img=12',
-    isActive: true
-  },
-  {
-    id: 2,
-    pseudo: 'alice_ui',
-    avatar: 'https://i.pravatar.cc/150?img=32',
-    isActive: false
-  },
-  {
-    id: 3,
-    pseudo: 'bob_ts',
-    avatar: 'https://i.pravatar.cc/150?img=56',
-    isActive: true
-  },
-  {
-    id: 4,
-    pseudo: 'clara_nuxt',
-    avatar: 'https://i.pravatar.cc/150?img=68',
-    isActive: false
-  }
-]
+const { data: users, pending, error } = useFetch<User[]>('/api/users')
 
 function selectUser(user: User) {
   activeUser.value = user
@@ -47,7 +22,11 @@ function selectUser(user: User) {
 </script>
 
 <template>
-  <div class="user-grid">
+  <div v-if="pending">Chargement des utilisateurs...</div>
+
+  <div v-else-if="error">Erreur de chargement</div>
+
+  <div v-else class="user-grid">
     <UserCard
       v-for="user in users"
       :key="user.id"
@@ -61,7 +40,7 @@ function selectUser(user: User) {
 <style scoped>
 .user-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 </style>
