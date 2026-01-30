@@ -5,15 +5,18 @@ import { useActiveUser } from '@/composables/useActiveUser'
 
 const activeUser = useActiveUser()
 
-const props = defineProps<{
-  modelValue: User | null
-}>()
+const props = defineProps<{ modelValue: User | null }>()
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: User | null): void
 }>()
 
-const { data: users, pending, error } = useFetch<User[]>('/api/users')
+const search = ref<string>('')
+
+const { data: users, refresh, pending, error } = useFetch<User[]>('/api/users', {
+    query: { q: search},
+    watch: [search]
+})
 
 function selectUser(user: User) {
   activeUser.value = user
@@ -25,8 +28,25 @@ function unSelectUser() {
 </script>
 
 <template>
-  <div v-if="pending">Chargement des utilisateurs...</div>
+    <div class="search-field">
+        <span class="search-icon" aria-hidden="true">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </span>
 
+        <input v-model="search" type="search" class="search-input" placeholder="Rechercher…">
+    </div>
+  <div v-if="pending">Chargement des utilisateurs...</div>
   <div v-else-if="error">Erreur de chargement</div>
 
   <div v-else class="users-layout" @keyup.esc="unSelectUser">
@@ -76,6 +96,50 @@ function unSelectUser() {
   background-color: #ffffff;
   padding: 1.5rem;
   overflow-y: auto;
+}
+
+.search-field {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.search-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  color: #111827;
+  background-color: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
 }
 
 </style>
